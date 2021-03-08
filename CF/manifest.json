@@ -1,0 +1,72 @@
+{
+	"update_url": "https://clients2.google.com/service/update2/crx",
+	
+	"name": "cf problem chooser and hider",
+	
+	"short_name": "cf",
+	
+	"version": "1.0.0",
+	
+	"description": "problem hider and problem chooser : hide solved problems in codeforces problemset page !!!!! and randomly choose problems with rate that you say that you dont solved it yet !!!",
+	
+	"manifest_version": 2,
+	
+	"icons":
+	{
+		"32": "icon32.png",
+		"16": "icon16.png",
+		"64": "icon64.png",
+		"128": "icon128.png",
+		"170": "icon170.png"
+	},
+
+	"browser_action":
+	{
+		"default_icon": 
+		{
+			"32": "icon32.png"
+		},
+
+		"default_title": " problem hider",
+		"default_popup": "popup.html"
+	},
+
+	"permissions":
+	[
+		"storage",
+		"https://codeforces.com/*",
+		"http://codeforces.com/*",
+		"https://www.codeforces.com/*",
+		"http://www.codeforces.com/*"
+	],
+
+	"background": {
+    		"scripts": ["background.js"]
+	},
+	
+	"content_scripts":
+	[
+		{
+			"js": ["problemhider.js"],
+			"matches": 
+			[
+				"https://codeforces.com/problemset*",
+				"http://codeforces.com/problemset*",
+				"https://www.codeforces.com/problemset*",
+				"http://www.codeforces.com/problemset*",
+				"https://codeforces.com/problemset/*",
+				"http://codeforces.com/problemset/*",
+				"https://www.codeforces.com/problemset/*",
+				"http://www.codeforces.com/problemset/*",
+				"https://codeforces.com/problemsets*",
+				"http://codeforces.com/problemsets*",
+				"https://www.codeforces.com/problemsets*",
+				"http://www.codeforces.com/problemsets*",
+				"https://codeforces.com/problemsets/*",
+				"http://codeforces.com/problemsets/*",
+				"https://www.codeforces.com/problemsets/*",
+				"http://www.codeforces.com/problemsets/*"
+			]
+		}
+	]	
+}
